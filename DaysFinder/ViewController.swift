@@ -38,13 +38,16 @@ class ViewController: UIViewController {
         let weekday = dateFormatter.string(from: date!)
         
         switch findButton.titleLabel?.text {
+        
         case "Find":
             findButton.setTitle("Clear", for: .normal)
             
             if dateComponents.day != nil && dateComponents.month != nil && dateComponents.year != nil  {
                 resultLabel.text = "The day - \(weekday)"
+                
+                warningPopUp(withTitle: "Input Error", withMessage: "Date fields are wrong!")
             }else{
-                //alert goes here
+                warningPopUp(withTitle: "Wrong Date", withMessage: "Provide correct Date")
             }
         default:
             findButton.setTitle("Find", for: .normal)
@@ -52,7 +55,7 @@ class ViewController: UIViewController {
         }
     }
     
-    func clearAllTextFields(){
+    func clearAllTextFields() {
         dayTextField.text = ""
         monthTextField.text = ""
         yearTextField.text = ""
@@ -61,5 +64,17 @@ class ViewController: UIViewController {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
+    }
+    
+    func warningPopUp(withTitle title: String?, withMessage message: String?){
+        DispatchQueue.main.async {
+            
+            let popUp = UIAlertController(title: title, message: message, preferredStyle: .alert)
+            
+            let okButton = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+            popUp.addAction(okButton)
+            
+            self.present(popUp, animated: true, completion: nil)
+        }
     }
 }
