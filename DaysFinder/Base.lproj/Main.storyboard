@@ -21,6 +21,10 @@
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Check Your Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nX1-LR-iRW">
                                 <rect key="frame" x="99" y="214" width="216" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="J1L-1A-dP4"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="216" id="qV0-JK-OOb"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -29,7 +33,8 @@
                                 <rect key="frame" x="87" y="669" width="240" height="56"/>
                                 <color key="backgroundColor" red="0.34158337119999999" green="0.1134518608" blue="0.1185129955" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="56" id="BCO-2o-0v5"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="240" id="T2X-a9-Kcf"/>
+                                    <constraint firstAttribute="height" constant="56" id="WO2-fB-8Zh"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                 <state key="normal" title="Find">
@@ -42,7 +47,8 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Day of the week, inside your finder" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UYm-tA-clK">
                                 <rect key="frame" x="59" y="491" width="296" height="109"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="296" id="nJ2-bR-eNw"/>
+                                    <constraint firstAttribute="height" constant="109" id="Uk6-SX-kYx"/>
+                                    <constraint firstAttribute="width" constant="296" id="zn9-q9-IdO"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -79,51 +85,45 @@
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Z8W-Lk-dIh">
                                                 <rect key="frame" x="0.0" y="0.0" width="260" height="34"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="260" id="wfB-Od-8RD"/>
-                                                </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" keyboardAppearance="alert"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="e6v-Qe-3pb">
                                                 <rect key="frame" x="0.0" y="49" width="260" height="34"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="260" id="op5-WF-bVX"/>
-                                                </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" keyboardAppearance="alert"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="X8F-jo-U0C">
                                                 <rect key="frame" x="0.0" y="98" width="260" height="34"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="260" id="qFf-g9-OSV"/>
-                                                </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" keyboardAppearance="alert"/>
                                             </textField>
                                         </subviews>
                                     </stackView>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="q5s-0I-H3D" firstAttribute="leading" secondItem="S1w-q2-FYn" secondAttribute="leading" constant="66" id="T94-Oz-hgG"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.98645049330000001" green="0.54497182110849363" blue="0.53176294569924631" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="1AS-k8-yWn" firstAttribute="centerX" secondItem="UYm-tA-clK" secondAttribute="centerX" id="9ix-le-dyN"/>
-                            <constraint firstItem="UYm-tA-clK" firstAttribute="top" secondItem="S1w-q2-FYn" secondAttribute="bottom" constant="52" id="AUe-e4-wT2"/>
-                            <constraint firstItem="1AS-k8-yWn" firstAttribute="centerX" secondItem="nX1-LR-iRW" secondAttribute="centerX" id="GPv-Dj-Fdw"/>
-                            <constraint firstItem="9aT-mh-RqA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Hbd-wf-yGw"/>
-                            <constraint firstItem="9aT-mh-RqA" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Rpf-z9-KOk"/>
-                            <constraint firstItem="9aT-mh-RqA" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="-140" id="SMn-LM-2NV"/>
-                            <constraint firstItem="1AS-k8-yWn" firstAttribute="centerX" secondItem="S1w-q2-FYn" secondAttribute="centerX" id="Vad-uy-VfW"/>
-                            <constraint firstAttribute="bottom" secondItem="S1w-q2-FYn" secondAttribute="bottom" constant="457" id="Zgs-N7-FiK"/>
-                            <constraint firstItem="1AS-k8-yWn" firstAttribute="top" secondItem="UYm-tA-clK" secondAttribute="bottom" constant="69" id="ZtD-Jb-lb6"/>
-                            <constraint firstAttribute="bottom" secondItem="9aT-mh-RqA" secondAttribute="bottom" id="d2e-HN-yOf"/>
-                            <constraint firstItem="nX1-LR-iRW" firstAttribute="centerX" secondItem="9aT-mh-RqA" secondAttribute="centerX" id="gMv-q1-Dl2"/>
-                            <constraint firstItem="nX1-LR-iRW" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="74" id="mX4-LK-DmK"/>
-                            <constraint firstItem="1AS-k8-yWn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="87" id="mpv-CZ-ab8"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="1AS-k8-yWn" secondAttribute="bottom" constant="137" id="x3K-T1-70O"/>
-                            <constraint firstItem="S1w-q2-FYn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="44" id="yH9-xa-lpW"/>
+                            <constraint firstItem="UYm-tA-clK" firstAttribute="centerX" secondItem="1AS-k8-yWn" secondAttribute="centerX" id="5D6-bi-Dtk"/>
+                            <constraint firstItem="9aT-mh-RqA" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="J9c-07-esD"/>
+                            <constraint firstItem="9aT-mh-RqA" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Khf-bt-aMw"/>
+                            <constraint firstItem="1AS-k8-yWn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="87" id="QfN-VQ-SgZ"/>
+                            <constraint firstItem="9aT-mh-RqA" firstAttribute="centerX" secondItem="1AS-k8-yWn" secondAttribute="centerX" id="VWF-cF-cjw"/>
+                            <constraint firstItem="nX1-LR-iRW" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="74" id="Y9x-cW-jcY"/>
+                            <constraint firstItem="S1w-q2-FYn" firstAttribute="top" secondItem="nX1-LR-iRW" secondAttribute="bottom" constant="57" id="byX-sa-t8t"/>
+                            <constraint firstItem="S1w-q2-FYn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="44" id="eOm-mA-wYk"/>
+                            <constraint firstItem="S1w-q2-FYn" firstAttribute="centerX" secondItem="UYm-tA-clK" secondAttribute="centerX" id="gX6-Ei-kL0"/>
+                            <constraint firstItem="9aT-mh-RqA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="hm2-OI-y0U"/>
+                            <constraint firstItem="nX1-LR-iRW" firstAttribute="centerX" secondItem="S1w-q2-FYn" secondAttribute="centerX" id="hzX-6O-NBE"/>
+                            <constraint firstItem="UYm-tA-clK" firstAttribute="top" secondItem="S1w-q2-FYn" secondAttribute="bottom" constant="52" id="kgj-CD-XoS"/>
+                            <constraint firstItem="1AS-k8-yWn" firstAttribute="top" secondItem="UYm-tA-clK" secondAttribute="bottom" constant="69" id="maM-w4-DV9"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="1AS-k8-yWn" secondAttribute="bottom" constant="137" id="vjz-J2-naz"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="9aT-mh-RqA" secondAttribute="bottom" constant="-34" id="ygh-uo-cMI"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Day Finder" id="eXC-zk-Aor">

@@ -34,12 +34,38 @@ class ViewController: UIViewController {
         
         
         let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "en_EN")
         dateFormatter.dateFormat = "EEEE"
         let weekday = dateFormatter.string(from: date!)
         
         
-        if dateComponents.day != nil && dateComponents.month != nil && dateComponents.year != nil  {
-            resultLabel.text = "It is \(weekday)"
+        //        if dateComponents.day != nil && dateComponents.month != nil && dateComponents.year != nil  {
+        //            resultLabel.text = "Ir \(weekday)"
+        //        }
+        
+        switch findButton.titleLabel?.text {
+        case "Find":
+            findButton.setTitle("Clear", for: .normal)
+            
+            if dateComponents.day != nil && dateComponents.month != nil && dateComponents.year != nil  {
+                resultLabel.text = "The day - \(weekday)"
+            }else{
+                //alert
+            }
+        default:
+            findButton.setTitle("Find", for: .normal)
+            clearAllTextFields()
         }
+    }
+    
+    func clearAllTextFields(){
+        dayTextField.text = ""
+        monthTextField.text = ""
+        yearTextField.text = ""
+        resultLabel.text = "Day of the week, inside rour finder"
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
 }
