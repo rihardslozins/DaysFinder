@@ -22,7 +22,6 @@ class ViewController: UIViewController {
     
     @IBAction func findWeekDayTapped(_ sender: Any) {
         
-        
         let calendar = Calendar.current
         
         var dateComponents = DateComponents()
