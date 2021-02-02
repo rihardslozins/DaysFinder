@@ -44,7 +44,7 @@ class ViewController: UIViewController {
             if dateComponents.day != nil && dateComponents.month != nil && dateComponents.year != nil  {
                 resultLabel.text = "The day - \(weekday)"
             }else{
-                //alert
+                //alert goes here
             }
         default:
             findButton.setTitle("Find", for: .normal)
