@@ -17,7 +17,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        findButton.layer.cornerRadius = 20
+        findButton.layer.cornerRadius = 12
     }
     
     @IBAction func findWeekDayTapped(_ sender: Any) {
