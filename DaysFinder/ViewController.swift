@@ -23,25 +23,19 @@ class ViewController: UIViewController {
     @IBAction func findWeekDayTapped(_ sender: Any) {
         
         let calendar = Calendar.current
-        
         var dateComponents = DateComponents()
         
         dateComponents.day = Int(dayTextField.text!)
         dateComponents.month = Int(monthTextField.text!)
         dateComponents.year = Int(yearTextField.text!)
         
-        let date = calendar.date(from: dateComponents)
         
+        let date = calendar.date(from: dateComponents)
         
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "en_EN")
         dateFormatter.dateFormat = "EEEE"
         let weekday = dateFormatter.string(from: date!)
-        
-        
-        //        if dateComponents.day != nil && dateComponents.month != nil && dateComponents.year != nil  {
-        //            resultLabel.text = "Ir \(weekday)"
-        //        }
         
         switch findButton.titleLabel?.text {
         case "Find":
