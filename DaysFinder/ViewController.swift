@@ -8,40 +8,39 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
     @IBOutlet weak var dayTextField: UITextField!
-    
     @IBOutlet weak var monthTextField: UITextField!
-    
     @IBOutlet weak var yearTextField: UITextField!
-    
     @IBOutlet weak var resultLabel: UILabel!
-    
     @IBOutlet weak var findButton: UIButton!
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
+        findButton.layer.cornerRadius = 20
     }
-    
     
     @IBAction func findWeekDayTapped(_ sender: Any) {
         
-        //calendar
         
-        //DateComponents()
+        let calendar = Calendar.current
         
-        //dateComponents.day = dayTextField.text
+        var dateComponents = DateComponents()
         
-        //calendar.date(from: dateComponents)
+        dateComponents.day = Int(dayTextField.text!)
+        dateComponents.month = Int(monthTextField.text!)
+        dateComponents.year = Int(yearTextField.text!)
         
-        //dateFormatter()
+        let date = calendar.date(from: dateComponents)
         
-        //resultLabel.text = result
         
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "EEEE"
+        let weekday = dateFormatter.string(from: date!)
+        
+        
+        if dateComponents.day != nil && dateComponents.month != nil && dateComponents.year != nil  {
+            resultLabel.text = "It is \(weekday)"
+        }
     }
-    
 }
-
