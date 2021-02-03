@@ -15,7 +15,6 @@ class AppearanceViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setLabelText()
         settingsButton.layer.cornerRadius = 12
     }
     
@@ -39,13 +38,10 @@ class AppearanceViewController: UIViewController {
     }
     
     func openSettings() {
-        guard let settingsURL = URL(string: UIApplication.openSettingsURLString) else {
-            return
-        }
+        guard let settingsURL = URL(string: UIApplication.openSettingsURLString) else { return }
         
         if UIApplication.shared.canOpenURL(settingsURL) {
             UIApplication.shared.open(settingsURL, options: [:]) { (success) in
-                print("open: ", success)
             }
         }
     }
