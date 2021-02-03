@@ -4,7 +4,6 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -130,7 +129,7 @@
                         <barButtonItem key="leftBarButtonItem" title="Item" image="info.circle.fill" catalog="system" id="Kb8-cE-GxB">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
-                                <segue destination="7iH-JS-KUb" kind="show" id="iaD-dE-HEC"/>
+                                <segue destination="7iH-JS-KUb" kind="show" identifier="dayFinder" id="iaD-dE-HEC"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Item" image="moon.circle.fill" catalog="system" id="FPL-wx-bKH">
@@ -152,10 +151,10 @@
             </objects>
             <point key="canvasLocation" x="1042.0289855072465" y="116.51785714285714"/>
         </scene>
-        <!--View Controller-->
+        <!--Appearance View Controller-->
         <scene sceneID="EdH-zh-BHb">
             <objects>
-                <viewController id="HqN-Ul-nLP" sceneMemberID="viewController">
+                <viewController id="HqN-Ul-nLP" customClass="AppearanceViewController" customModule="DaysFinder" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KcS-UR-Dwc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -179,6 +178,10 @@
                                         <state key="normal" title="Settings">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="openSettings:" destination="HqN-Ul-nLP" eventType="touchUpInside" id="FTu-jX-SvY"/>
+                                            <action selector="openSettingsButtonTapped:" destination="HqN-Ul-nLP" eventType="touchUpInside" id="eoI-fB-hmn"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -189,18 +192,35 @@
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="280" id="yyT-Qv-nBJ"/>
                                 </constraints>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xR9-Iz-GeI">
+                                <rect key="frame" x="292" y="37" width="87" height="24"/>
+                                <rect key="contentStretch" x="0.20000000000000001" y="0.0" width="1" height="1"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                <color key="tintColor" red="0.34158337119999999" green="0.1134518608" blue="0.1185129955" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title=" Return" image="return" catalog="system"/>
+                                <connections>
+                                    <action selector="closeButtonTapped:" destination="HqN-Ul-nLP" eventType="touchUpInside" id="lMN-lr-bex"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="IUH-sx-H61"/>
                         <color key="backgroundColor" red="0.98306256530000002" green="0.557233274" blue="0.4238908589" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="xR9-Iz-GeI" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="IUH-sx-H61" secondAttribute="leading" id="2kb-Jb-W7x"/>
                             <constraint firstItem="LaN-Ce-51E" firstAttribute="top" secondItem="IUH-sx-H61" secondAttribute="top" constant="245" id="3nL-GI-xKp"/>
+                            <constraint firstItem="IUH-sx-H61" firstAttribute="trailing" secondItem="xR9-Iz-GeI" secondAttribute="trailing" constant="35" id="52o-xL-TvP"/>
                             <constraint firstItem="LaN-Ce-51E" firstAttribute="leading" secondItem="IUH-sx-H61" secondAttribute="leading" constant="87" id="5Ru-BE-NXb"/>
                             <constraint firstItem="LaN-Ce-51E" firstAttribute="leading" secondItem="IUH-sx-H61" secondAttribute="leading" constant="87" id="Fin-eR-w7b"/>
                             <constraint firstItem="IUH-sx-H61" firstAttribute="trailing" secondItem="LaN-Ce-51E" secondAttribute="trailing" constant="87" id="S1T-gk-GQI"/>
                             <constraint firstItem="LaN-Ce-51E" firstAttribute="centerX" secondItem="KcS-UR-Dwc" secondAttribute="centerX" id="Tn5-KN-PfT"/>
                             <constraint firstItem="IUH-sx-H61" firstAttribute="trailing" secondItem="LaN-Ce-51E" secondAttribute="trailing" constant="87" id="f7g-f2-pbe"/>
+                            <constraint firstItem="xR9-Iz-GeI" firstAttribute="top" secondItem="IUH-sx-H61" secondAttribute="top" constant="37" id="i85-7r-0dj"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="settingsButton" destination="Tnk-L3-BVJ" id="NDV-Md-l5L"/>
+                        <outlet property="textLabel" destination="ljs-ee-mVA" id="tzU-Yv-XFy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E3N-PH-isr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -230,29 +250,71 @@
             </objects>
             <point key="canvasLocation" x="131.8840579710145" y="116.51785714285714"/>
         </scene>
-        <!--View Controller-->
+        <!--App Info View Controller-->
         <scene sceneID="P5Z-g0-hVE">
             <objects>
-                <viewController id="7iH-JS-KUb" sceneMemberID="viewController">
+                <viewController id="7iH-JS-KUb" customClass="AppInfoViewController" customModule="DaysFinder" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dAs-9N-pjp">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="App Info" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hVH-Jc-LGq">
+                                <rect key="frame" x="27" y="416" width="360" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="360" id="LJm-h3-zfN"/>
+                                    <constraint firstAttribute="height" constant="64" id="zOX-QI-dXk"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="App Description" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u2S-jR-cAx">
+                                <rect key="frame" x="27" y="711" width="360" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="360" id="YlI-GM-Jhd"/>
+                                    <constraint firstAttribute="height" constant="64" id="iUS-dh-V7q"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calendar-512" translatesAutoresizingMaskIntoConstraints="NO" id="tps-KB-hFe">
+                                <rect key="frame" x="87" y="160" width="240" height="161"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="fFz-AX-mRO"/>
+                                    <constraint firstAttribute="height" constant="161" id="nAf-lj-li6"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="t4Y-Oa-p6d"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.98306256530000002" green="0.557233274" blue="0.4238908589" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="u2S-jR-cAx" firstAttribute="centerX" secondItem="dAs-9N-pjp" secondAttribute="centerX" id="Kao-9N-fP9"/>
+                            <constraint firstItem="t4Y-Oa-p6d" firstAttribute="bottom" secondItem="u2S-jR-cAx" secondAttribute="bottom" constant="87" id="VTI-NV-f9C"/>
+                            <constraint firstItem="hVH-Jc-LGq" firstAttribute="centerY" secondItem="dAs-9N-pjp" secondAttribute="centerY" id="YdI-jg-cSv"/>
+                            <constraint firstItem="tps-KB-hFe" firstAttribute="centerX" secondItem="hVH-Jc-LGq" secondAttribute="centerX" id="h7T-gn-6MJ"/>
+                            <constraint firstItem="tps-KB-hFe" firstAttribute="top" secondItem="t4Y-Oa-p6d" secondAttribute="top" constant="20" id="iNk-5M-yqy"/>
+                            <constraint firstItem="u2S-jR-cAx" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="hVH-Jc-LGq" secondAttribute="leading" id="nhi-uf-bUy"/>
+                            <constraint firstItem="t4Y-Oa-p6d" firstAttribute="trailing" secondItem="hVH-Jc-LGq" secondAttribute="trailing" constant="27" id="vYX-F6-1T5"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="gVg-iW-gf4"/>
+                    <connections>
+                        <outlet property="appDescriptionLabel" destination="u2S-jR-cAx" id="GRO-hR-Y49"/>
+                        <outlet property="appInfoLabel" destination="hVH-Jc-LGq" id="0Hh-ZI-QiF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i8m-n7-YO1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1042" y="914"/>
+            <point key="canvasLocation" x="1039.1304347826087" y="913.39285714285711"/>
         </scene>
     </scenes>
+    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>
+        <image name="calendar-512" width="512" height="512"/>
         <image name="info.circle.fill" catalog="system" width="128" height="121"/>
         <image name="moon.circle.fill" catalog="system" width="128" height="121"/>
         <image name="night" width="658" height="1432"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <image name="return" catalog="system" width="128" height="101"/>
     </resources>
 </document>

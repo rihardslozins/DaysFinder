@@ -44,10 +44,8 @@ class ViewController: UIViewController {
             
             if dateComponents.day != nil && dateComponents.month != nil && dateComponents.year != nil  {
                 resultLabel.text = "The day - \(weekday)"
-                
-                warningPopUp(withTitle: "Input Error", withMessage: "Date fields are wrong!")
             }else{
-                warningPopUp(withTitle: "Wrong Date", withMessage: "Provide correct Date")
+                warningPopUp(withTitle: "Inputs Needed", withMessage: "Provide correct Inputs")
             }
         default:
             findButton.setTitle("Find", for: .normal)
@@ -75,6 +73,21 @@ class ViewController: UIViewController {
             popUp.addAction(okButton)
             
             self.present(popUp, animated: true, completion: nil)
+        }
+    }
+    
+    // MARK: - Navigation
+    
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        // Get the new view controller using segue.destination.
+        if segue.identifier == "dayFinder" {
+            
+            let vc = segue.destination as! AppInfoViewController
+            
+            // Pass the selected object to the new view controller.
+            vc.infoText = "DayFinder App"
         }
     }
 }
