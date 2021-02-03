@@ -11,20 +11,18 @@ class AppearanceViewController: UIViewController {
     
     @IBOutlet weak var textLabel: UILabel!
     
-    
     @IBOutlet weak var settingsButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setLabelText()
         settingsButton.layer.cornerRadius = 12
     }
-    
     
     @IBAction func openSettingsButtonTapped(_ sender: Any) {
         openSettings()
         
     }
-    
     
     @IBAction func closeButtonTapped(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
