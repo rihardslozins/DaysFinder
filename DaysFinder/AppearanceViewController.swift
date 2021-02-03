@@ -15,15 +15,18 @@ class AppearanceViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         settingsButton.layer.cornerRadius = 12
+        
+        setLabelText()
     }
     
-    @IBAction func openSettingsButtonTapped(_ sender: Any) {
+    @IBAction func openSettingsButtonTapped(_ sender: UIButton) {
         openSettings()
         
     }
     
-    @IBAction func closeButtonTapped(_ sender: Any) {
+    @IBAction func closeButtonTapped(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -38,10 +41,10 @@ class AppearanceViewController: UIViewController {
     }
     
     func openSettings() {
-        guard let settingsURL = URL(string: UIApplication.openSettingsURLString) else { return }
+        guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else { return }
         
-        if UIApplication.shared.canOpenURL(settingsURL) {
-            UIApplication.shared.open(settingsURL, options: [:]) { (success) in
+        if UIApplication.shared.canOpenURL(settingsUrl) {
+            UIApplication.shared.open(settingsUrl, options: [:]) { (success) in
             }
         }
     }
